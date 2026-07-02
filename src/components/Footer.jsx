@@ -33,7 +33,7 @@ function Footer() {
         textAlign: 'center'
       }}>
         <Box sx={{ mb: 2 }}>
-          <SocialLink href="https://github.com/geno3337" target="_blank" rel="noopener">
+          <SocialLink href="https://github.com/Geno-code" target="_blank" rel="noopener">
             <GitHubIcon sx={{ mr: 1 }} /> GitHub
           </SocialLink>
           <SocialLink href="https://www.linkedin.com/in/geno07/" target="_blank" rel="noopener">

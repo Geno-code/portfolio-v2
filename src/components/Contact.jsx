@@ -244,7 +244,7 @@ function Contact() {
                     <LinkedInIcon fontSize="large" />
                   </Button>
                   <Button
-                    href="https://github.com/geno3337"
+                    href="https://github.com/Geno-code"
                     target="_blank"
                     sx={{ color: '#64ffda', minWidth: 0 }}
                   >
