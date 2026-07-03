@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geno A. - Resume</title>
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --secondary-color: #0284c7;
+            --text-color: #334155;
+            --text-light: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-color);
+            line-height: 1.5;
+            padding: 40px;
+            background-color: #f8fafc;
+        }
+
+        .resume-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            border-radius: 8px;
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .contact-info a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--secondary-color);
+        }
+
+        section {
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            row-gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .skills-category {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .skills-list {
+            color: var(--text-color);
+        }
+
+        .experience-item, .project-item {
+            margin-bottom: 20px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .item-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+
+        .item-company {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .item-date {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        .item-location {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .item-bullets {
+            list-style-type: disc;
+            margin-left: 20px;
+            font-size: 0.9rem;
+        }
+
+        .item-bullets li {
+            margin-bottom: 5px;
+        }
+
+        .tech-stack {
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-family: monospace;
+        }
+
+        .education-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        /* Print styling optimized to fit cleanly */
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+            .resume-container {
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+            .contact-info a {
+                color: var(--text-color);
+            }
+            section {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .resume-container {
+                padding: 20px;
+            }
+            .item-header {
+                flex-direction: column;
+                gap: 2px;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+                row-gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <header>
+            <h1>GENO A.</h1>
+            <div class="subtitle">Backend Software Engineer | Java · Spring Boot · Microservices</div>
+            <div class="contact-info">
+                <span>📍 Kanyakumari, Tamil Nadu, India</span>
+                <span>📞 <a href="tel:+919360810235">+91 9360810235</a></span>
+                <span>✉️ <a href="mailto:geno.dev7@gmail.com">geno.dev7@gmail.com</a></span>
+                <span>🔗 <a href="https://linkedin.com/in/geno07" target="_blank">linkedin.com/in/geno07</a></span>
+                <span>💻 <a href="https://github.com/geno-code" target="_blank">github.com/geno-code</a></span>
+            </div>
+        </header>
+
+        <section>
+            <h2>Professional Summary</h2>
+            <p style="font-size: 0.9rem; text-align: justify;">
+                Backend Engineer with 2+ years building production microservices and REST APIs in Java and Spring Boot.
+                Contributed to the Third Wave Coffee platform at scale, developing Menu Module APIs, engineering a distributed
+                tracing SDK used across multiple microservices, and implementing Redis cache-on-miss strategies that reduced
+                database load on high-frequency read endpoints. Experienced in Spring Security, JWT-based RBAC,
+                PostgreSQL, MongoDB, AWS S3, and Docker.
+            </p>
+        </section>
+
+        <section>
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <span class="skills-category">Languages:</span>
+                <span class="skills-list">Java, JavaScript, SQL</span>
+
+                <span class="skills-category">Frameworks:</span>
+                <span class="skills-list">Spring Boot, Spring Security, Spring Data JPA, React.js</span>
+
+                <span class="skills-category">Databases:</span>
+                <span class="skills-list">PostgreSQL, MySQL, MongoDB</span>
+
+                <span class="skills-category">Messaging / Cache:</span>
+                <span class="skills-list">WebSocket, Redis</span>
+
+                <span class="skills-category">Cloud / DevOps:</span>
+                <span class="skills-list">AWS S3, Docker, Git, GitHub, Maven, CI/CD basics</span>
+
+                <span class="skills-category">Testing:</span>
+                <span class="skills-list">JUnit, Mockito, Postman API Testing</span>
+
+                <span class="skills-category">Concepts:</span>
+                <span class="skills-list">REST APIs, Microservices, JWT Auth, RBAC, Distributed Tracing, OOP, Agile/Scrum</span>
+
+                <span class="skills-category">Tools:</span>
+                <span class="skills-list">IntelliJ IDEA, VS Code, Postman, Jira</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="item-header">
+                    <div>
+                        <span class="item-title">Backend Engineer (Java / Spring Boot)</span>
+                        <span> at </span>
+                        <span class="item-company">Zarthi Pvt Ltd</span>
+                    </div>
+                    <span class="item-date">Aug 2025 – Present</span>
+                </div>
+                <div class="item-location">Trivandrum, Kerala</div>
+                <ul class="item-bullets">
+                    <li>Built and maintained 10+ REST APIs for the Menu Module of the Third Wave Coffee platform, serving live data across multiple active business outlets in production.</li>
+                    <li>Reduced database load on read-heavy menu endpoints by ~40% by implementing a Redis cache-on-miss (getOrSync) strategy and parallel execution via custom task executors.</li>
+                    <li>Engineered shared SDK components used across 3+ microservices, including a Redis caching library and a distributed tracing framework with SLF4J MDC integration, enabling full log correlation across service boundaries.</li>
+                    <li>Architected a RequestLoggingFilter that extracts or auto-generates x-trace-id headers per request and propagated trace context through all outbound RestTemplate calls via a custom interceptor.</li>
+                    <li>Defined and enforced consistent API response contracts with frontend and QA teams, reducing integration round-trips and enabling faster end-to-end feature delivery.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="item-header">
+                    <div>
+                        <span class="item-title">Junior Software Developer (Java / Spring Boot)</span>
+                        <span> at </span>
+                        <span class="item-company">Techneat Info Solutions</span>
+                    </div>
+                    <span class="item-date">Oct 2024 – Aug 2025</span>
+                </div>
+                <div class="item-location">Nagercoil, Tamil Nadu</div>
+                <ul class="item-bullets">
+                    <li>Delivered 100% of assigned sprint tasks on time across 10+ months, contributing to consistent bi-weekly release cycles for the product team.</li>
+                    <li>Standardized API response envelopes across the backend codebase, cutting frontend-backend integration cycles by an estimated 30% and reducing post-integration bug reports.</li>
+                    <li>Established input validation and error-handling standards via structured code reviews, reducing production bug reports by an estimated 25% within 2 sprint cycles of rollout.</li>
+                    <li>Improved sprint planning by breaking features into scoped subtasks and aligning API contracts with frontend early, reducing late-stage blockers and rework significantly.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="item-header">
+                    <div>
+                        <span class="item-title">Software Developer Trainee (Java / Spring Boot)</span>
+                        <span> at </span>
+                        <span class="item-company">Techneat Info Solutions</span>
+                    </div>
+                    <span class="item-date">Apr 2024 – Sep 2024</span>
+                </div>
+                <div class="item-location">Nagercoil, Tamil Nadu</div>
+                <ul class="item-bullets">
+                    <li>Built a full-stack Timesheet Management System with Spring Boot and React.js during structured training, implementing role-based access control (Admin, Team Lead, Employee), shift scheduling with Java Streams, and AWS S3 document storage.</li>
+                    <li>Delivered features independently within a production-adjacent codebase, applying Java Streams, collections framework, and OOP design patterns across multiple backend modules.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            
+            <div class="project-item">
+                <div class="item-header">
+                    <span class="item-title">AI-Powered Resume Analyzer and Assistant</span>
+                </div>
+                <div class="tech-stack">Tech Stack: Java 21, Spring Boot, Spring AI, PostgreSQL, pgvector, Mistral AI, Apache PDFBox, Mockito</div>
+                <ul class="item-bullets">
+                    <li>Built a production-ready RESTful backend using Java 21, Spring Boot, and Spring AI to automate resume screening, job-description matching, and AI-driven interview question generation via Mistral AI.</li>
+                    <li>Designed a RAG pipeline using pgvector (PostgreSQL) for vector storage and cosine similarity search, enabling context-aware natural language Q&A over uploaded resume content.</li>
+                    <li>Built a semantic ingestion pipeline with Apache PDFBox to parse unstructured PDF resumes, chunk and tokenize content, generate vector embeddings, and store them in PostgreSQL for retrieval.</li>
+                    <li>Engineered deterministic prompt structures to force structured JSON output from Mistral AI, mapping LLM responses directly into Java DTOs and eliminating unstructured string parsing across all AI endpoints.</li>
+                    <li>Built Mockito-based test suites mocking LLM completions to validate parsing robustness and edge-case handling, including malformed Markdown JSON blocks returned by the model.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <div class="education-item">
+                <div>
+                    <span class="item-title">B.E. — Electronics & Communication Engineering</span>
+                    <span> at </span>
+                    <span class="item-company">University College of Engineering</span>
+                </div>
+                <span class="item-date">2020 – 2024</span>
+            </div>
+            <div class="item-location">Nagercoil | CGPA: 7.7</div>
+        </section>
+    </div>
+</body>
+</html>

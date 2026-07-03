@@ -6,10 +6,10 @@ import PublicIcon from '@mui/icons-material/Public';
 import HowToVoteIcon from '@mui/icons-material/HowToVote';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import CodeIcon from '@mui/icons-material/Code';
-import TranslateIcon from '@mui/icons-material/Translate';
 import BugReportIcon from '@mui/icons-material/BugReport';
 import ChatIcon from '@mui/icons-material/Chat';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import PsychologyIcon from '@mui/icons-material/Psychology';
 // import GroupWorkIcon from '@mui/icons-material/GroupWork';
 // import WorkIcon from '@mui/icons-material/Work';
 // import EmailIcon from '@mui/icons-material/Email';
@@ -117,90 +117,42 @@ const ProjectIconWrapper = styled(Box)(({ theme }) => ({
 }));
 
 const projects = [
-  // {
-  //   projectName: "Event Booking System",
-  //   description: "Web application for event creation, ticket booking, and refund processing with separate user and organizer roles.",
-  //   demo: "#",
-  //   code: "#",
-  //   icon: <EventIcon fontSize="large" />,
-  // },
   {
-    projectName: "Multiplayer 2D Jump-and-Shoot Game",
-    description: "Multiplayer game using React, Spring Boot, and WebSocket, with player movement, jumping, and shooting mechanics.",
-    // demo: "#",
+    projectName: "AI Resume Analyzer & Assistant",
+    description: "A production-ready RESTful backend using Java 21, Spring Boot, and Spring AI. Implements a pgvector RAG pipeline for natural language Q&A over resume data, parses PDFs using Apache PDFBox, and maps LLM outputs directly to Java DTOs.",
+    code: "https://github.com/Geno-code",
+    icon: <PsychologyIcon fontSize="large" />,
+  },
+  {
+    projectName: "Multiplayer 2D Game Backend",
+    description: "A real-time, low-latency multiplayer game backend using Spring Boot WebSockets and STOMP. Managed concurrency using thread-safe state engines (ConcurrentHashMap) and implemented server-side location validation checks.",
     code: "https://github.com/Geno-code/game-api.git",
     icon: <SportsEsportsIcon fontSize="large" />,
   },
-  // {
-  //   projectName: "Live Collaboration Tool",
-  //   description: "Real-time document and whiteboard collaboration platform using Spring Boot WebSocket and Slate.js.",
-  //   demo: "#",
-  //   code: "#",
-  //   icon: <GroupWorkIcon fontSize="large" />,
-  // },
   {
-    projectName: "Chat Application",
-    description: "Real-time chat app using Spring Boot WebSocket and React.js with room management and messaging.",
-    // demo: "#",
+    projectName: "Enterprise Bug Tracker API",
+    description: "A secure issue tracker featuring dynamic Role-Based Access Control (RBAC) via Spring Security. Optimized PostgreSQL queries using database indexing on lookup keys, securing user data and reducing API latencies.",
+    code: "https://github.com/Geno-code/bug-tracker-api.git",
+    icon: <BugReportIcon fontSize="large" />,
+  },
+  {
+    projectName: "WebSocket Chat Service",
+    description: "A real-time chat service engine implementing active room management and messaging persistence. Built using Spring Boot WebSockets and STOMP to ensure immediate event tracking and low-latency client delivery.",
     code: "https://github.com/Geno-code/chatapp-api.git",
     icon: <ChatIcon fontSize="large" />,
   },
   {
-    projectName: "Bug Tracker System",
-    description: "Full-stack bug tracking system with role-based access control using Spring Boot, and PostgreSQL.",
-    // demo: "#",
-    code: "https://github.com/Geno-code/bug-tracker-api.git",
-    icon: <BugReportIcon fontSize="large" />,
-  },
-  // {
-  //   projectName: "Job Portal",
-  //   description: "A Laravel-based API with Filament admin panel and React frontend, featuring resume upload and employer dashboards.",
-  //   demo: "#",
-  //   code: "#",
-  //   icon: <WorkIcon fontSize="large" />,
-  // },
-  // {
-  //   projectName: "Email Client Desktop App",
-  //   description: "A JavaFX-based email client for sending, receiving, and managing emails in a desktop environment.",
-  //   demo: "#",
-  //   code: "#",
-  //   icon: <EmailIcon fontSize="large" />,
-  // },
-  {
-    projectName: "Language Translator App",
-    description: "A web app for translating between multiple languages using external APIs, built with React and python.",
-    // demo: "#",
-    code: "https://github.com/Geno-code/language_translator_project.git",
-    icon: <TranslateIcon fontSize="large" />,
-  },
-  // {
-  //   projectName: "Vehicle Tracking System",
-  //   description: "Real-time vehicle tracking solution using GPS data, integrated with a web-based map dashboard.",
-  //   demo: "#",
-  //   code: "#",
-  //   icon: <DirectionsCarIcon fontSize="large" />,
-  // },
-  {
-    projectName: "Portfolio Website",
-    description: "A responsive personal portfolio website built with React and Material-UI.",
-    // demo: "#",
-    code: "https://github.com/Geno-code/portfolio-v2.git",
-    icon: <CodeIcon fontSize="large" />,
-  },
-  {
-    projectName: "Smart Streetlight Monitoring",
-    description: "IoT system to detect faulty streetlights and display their status and location on a web dashboard.",
-    // demo: "#",
-    code: "https://github.com/Geno-code/StreetLightFaultDetection.git",
-    icon: <LightbulbIcon fontSize="large" />,
-  },
-  {
-    projectName: "Online Voting System",
-    description: "A secure web application for conducting elections with admin controls to manage users, voters, and election timing.",
-    // demo: "#",
+    projectName: "Secure Election Engine",
+    description: "A transaction-consistent secure election engine. Implemented database level validators in Spring Data JPA to guarantee transaction integrity, preventing double-ballots and maintaining strict election timelines.",
     code: "https://github.com/Geno-code/voterEngineAPI.git",
     icon: <HowToVoteIcon fontSize="large" />,
   },
+  {
+    projectName: "Streetlight Telemetry Monitor",
+    description: "An IoT monitoring service parsing fault-status and GPS tracking data payloads from sensor nodes, persisting diagnostic alarms and rendering coordinates dynamically on web-based maps.",
+    code: "https://github.com/Geno-code/StreetLightFaultDetection.git",
+    icon: <LightbulbIcon fontSize="large" />,
+  }
 ];
 
 function Works() {

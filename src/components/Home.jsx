@@ -99,19 +99,27 @@ function Home() {
                 Geno A.
               </NameText>
               <NameText variant="h3" sx={{ color: '#8892b0', fontSize: { xs: '1.75rem', sm: '2rem', md: '3rem' } }}>
-                I build things for the web.
+                I build high-performance backend systems.
               </NameText>
               <DescriptionText variant="body1" >
-                I'm a passionate software engineer specializing in full-stack development.
-                Currently focused on building robust back-end systems using Java, Spring Boot,
-                and MySQL, while also expanding my expertise in modern front-end technologies.
+                I am a Backend Software Engineer with 2+ years of experience building secure, scalable microservices and REST APIs in Java and Spring Boot. 
+                Whether you need robust data pipelines, optimized database queries, or real-time WebSocket integrations, I build the engines that run your applications.
               </DescriptionText>
-              <Box sx={{ display: 'flex', justifyContent: isSmallScreen ? 'center' : 'flex-start' }}>
-                <ScrollLink to="about" smooth={true} duration={500} offset={-70}>
+              <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', justifyContent: isSmallScreen ? 'center' : 'flex-start' }}>
+                <ScrollLink to="works" smooth={true} duration={500} offset={-70}>
                   <HeroButton variant="outlined" endIcon={<EastIcon />}>
-                    Learn More About Me
+                    View My Work
                   </HeroButton>
                 </ScrollLink>
+                <HeroButton 
+                  variant="outlined" 
+                  component="a"
+                  href="/resume.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Resume
+                </HeroButton>
               </Box>
             </Box>
           </Grid>

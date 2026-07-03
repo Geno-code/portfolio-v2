@@ -53,11 +53,12 @@ const SectionTitle = styled(Typography)(({ theme }) => ({
 }));
 
 const skills = [
-  "Java", "Python", "OOP", "Spring Boot", 
-  "Spring Security", "Spring JPA", "REST API", 
-  "HTML", "CSS", "JavaScript", "React.js", 
-  "Material UI", "MySQL", "MongoDB", "PostgreSQL", 
-  "Postman", "Docker", "Git", "GitHub"
+  "Java", "Spring Boot", "Microservices", "REST APIs",
+  "Spring Security", "Spring Data JPA", "SQL", "PostgreSQL",
+  "MySQL", "MongoDB", "Redis", "WebSockets",
+  "Docker", "AWS S3", "Git / GitHub", "Maven",
+  "JUnit", "Mockito", "Postman", "React.js",
+  "JavaScript", "JWT / Auth", "Distributed Tracing", "System Design"
 ];
 
 function Skills() {

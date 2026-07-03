@@ -76,10 +76,10 @@ function About() {
   const isSmallScreen = useMediaQuery('(max-width:600px)');
 
   const skills = [
-    'Java', 'Spring Boot', 'Spring Security', 
-    'MySQL', 'MongoDB', 'REST APIs',
-    'React.js', 'Material UI', 'JavaScript',
-    'Git','GitHub', 'Docker'
+    'Java', 'Spring Boot', 'Spring Security', 'Spring Data JPA',
+    'PostgreSQL', 'MySQL', 'MongoDB', 'Redis',
+    'REST APIs', 'Microservices', 'WebSockets', 'Distributed Tracing',
+    'React.js', 'Docker', 'Git', 'JUnit / Mockito'
   ];
 
   return (
@@ -92,15 +92,15 @@ function About() {
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
             <Typography color="#8892b0" paragraph sx={{ lineHeight: 1.6 }}>
-              Hello! I'm <HighlightText>Geno A</HighlightText>, a passionate backend developer with expertise in building scalable and efficient web applications. My journey in software development began after completing my degree in Electronics and Communication Engineering.
+              Hello! I'm <HighlightText>Geno A.</HighlightText>, a Backend Software Engineer with a B.E. in Electronics & Communication Engineering. I combine strong logical foundations with deep systems knowledge to engineer secure, high-performance backends.
             </Typography>
             
             <Typography color="#8892b0" paragraph sx={{ lineHeight: 1.6 }}>
-              I specialize in creating <HighlightText>robust back-end systems</HighlightText> using Java and Spring ecosystem. My experience includes developing secure, high-performance solutions that handle complex business logic while maintaining clean, maintainable code.
+              Currently, at <HighlightText>Zarthi Pvt Ltd</HighlightText>, I build core backend services for the Third Wave Coffee platform, where I focus on API design, caching structures (Redis), and distributed logging. Previously, at <HighlightText>Techneat Info Solutions</HighlightText>, I standardized code validation rules and built secure document flow modules.
             </Typography>
             
             <Typography color="#8892b0" paragraph sx={{ lineHeight: 1.6 }}>
-              Beyond backend development, I have experience with <HighlightText>frontend technologies</HighlightText> like React.js, which helps me build complete, integrated solutions. I'm particularly interested in optimizing system performance and ensuring scalability.
+              My engineering approach prioritizes database query optimizations, performance tuning, and clean architecture principles. I specialize in Java and the Spring Boot ecosystem, while keeping a high level of versatility to integrate cloud and frontend technologies.
             </Typography>
             
             {!isSmallScreen && (
@@ -112,7 +112,7 @@ function About() {
           
           <Grid item xs={12} md={6}>
             {!isSmallScreen && (
-              <Box sx={{ display: 'flex', flexWrap: 'wrap', marginTop: 2 }}>
+              <Box sx={{ display: 'flex', flexWrap: 'wrap', marginTop: 2, mb: 3 }}>
                 {skills.map((skill, index) => (
                   <SkillPill key={index}>{skill}</SkillPill>
                 ))}
@@ -120,11 +120,11 @@ function About() {
             )}
             
             <Typography color="#8892b0" paragraph sx={{ lineHeight: 1.6 }}>
-              I'm currently expanding my knowledge in <HighlightText>web-socket</HighlightText> to build low-latency, bi-directional communication systems for real-time features like chat, collaboration, and live status tracking. I believe in continuous learning and staying updated with industry best practices.
+              I have hands-on experience with <HighlightText>microservices architecture</HighlightText> and real-time messaging using <HighlightText>WebSockets</HighlightText>. I enjoy solving distributed environment challenges, such as implementing distributed tracing context propagation to coordinate logging across multiple microservices.
             </Typography>
             
             <Typography color="#8892b0" paragraph sx={{ lineHeight: 1.6 }}>
-              When I'm not coding, you might find me exploring new technologies, contributing to open-source projects, or mentoring aspiring developers. I'm always excited to collaborate on challenging projects that push my boundaries.
+              I am open to both full-time positions and select freelance backend consulting engagements where I can help businesses optimize database performance, secure endpoints, or build customized API integrations.
             </Typography>
             
             {isSmallScreen && (
@@ -133,7 +133,7 @@ function About() {
                   Here are a few technologies I've been working with recently:
                 </Typography>
                 <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
-                  {skills.slice(0, 6).map((skill, index) => (
+                  {skills.map((skill, index) => (
                     <SkillPill key={index}>{skill}</SkillPill>
                   ))}
                 </Box>

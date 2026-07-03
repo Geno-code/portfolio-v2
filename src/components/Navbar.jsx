@@ -71,7 +71,7 @@ const MobileMenuItem = styled(MenuItem)(({ theme }) => ({
   },
 }));
 
-const pages = ['Home', 'About', 'Skills', 'Works', 'Contact'];
+const pages = ['Home', 'About', 'Services', 'Skills', 'Works', 'Contact'];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -180,6 +180,16 @@ function Navbar() {
                 <Typography textAlign="center">{page}</Typography>
               </MobileMenuItem>
             ))}
+            <MobileMenuItem 
+              onClick={handleCloseNavMenu}
+              component="a"
+              href="/resume.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#64ffda', fontWeight: 'bold' }}
+            >
+              <Typography textAlign="center">Resume</Typography>
+            </MobileMenuItem>
           </MobileMenu>
 
           {/* Desktop Navigation - Right side */}
@@ -198,7 +208,7 @@ function Navbar() {
                 {page}
               </NavButton>
             ))}
-            {/* <Button
+            <Button
               variant="outlined"
               sx={{
                 color: '#64ffda',
@@ -207,15 +217,18 @@ function Navbar() {
                 padding: '0.5rem 1rem',
                 marginLeft: '1rem',
                 fontFamily: "'Fira Code', monospace",
+                textTransform: 'none',
                 '&:hover': {
                   backgroundColor: 'rgba(100, 255, 218, 0.1)',
                   borderColor: '#64ffda',
                 },
               }}
-              href="#contact"
+              href="/resume.html"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Resume
-            </Button> */}
+            </Button>
           </Box>
         </Toolbar>
       </Container>
