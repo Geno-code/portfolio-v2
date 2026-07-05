@@ -6,20 +6,23 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 
 const FooterContainer = styled(Box)(({ theme }) => ({
-  backgroundColor: '#0a192f',
-  padding: theme.spacing(4),
-  borderTop: '1px solid rgba(100, 255, 218, 0.1)',
+  backgroundColor: '#09090b', /* Zinc 950 */
+  padding: theme.spacing(5, 4),
+  borderTop: '1px solid rgba(255, 255, 255, 0.08)',
 }));
 
 const SocialLink = styled(Link)(({ theme }) => ({
-  color: '#8892b0',
-  margin: theme.spacing(0, 1.5),
+  color: '#a1a1aa',
+  margin: theme.spacing(0, 2),
   transition: 'all 0.3s ease',
   display: 'inline-flex',
   alignItems: 'center',
+  fontFamily: "'Fira Code', monospace",
+  fontSize: '0.85rem',
+  textDecoration: 'none',
   '&:hover': {
-    color: '#64ffda',
-    transform: 'translateY(-3px)',
+    color: '#10b981',
+    transform: 'translateY(-2px)',
   },
 }));
 
@@ -44,11 +47,11 @@ function Footer() {
           </SocialLink>
         </Box>
         
-        <Typography variant="body2" color="#8892b0" sx={{ mb: 1 }}>
+        <Typography variant="body2" color="#a1a1aa" sx={{ mb: 1 }}>
           Designed & Built by Geno A
         </Typography>
         
-        <Typography variant="body2" color="#8892b0">
+        <Typography variant="body2" color="#71717a">
           © {new Date().getFullYear()} All Rights Reserved
         </Typography>
       </Box>

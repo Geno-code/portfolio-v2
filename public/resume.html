@@ -199,10 +199,42 @@
                 grid-template-columns: 1fr;
                 row-gap: 12px;
             }
+        /* Floating print action controls */
+        .floating-actions {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .floating-actions button {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 99px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+        .floating-actions button:hover {
+            background-color: #0369a1;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+        }
+        @media print {
+            .no-print {
+                display: none !important;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="no-print floating-actions">
+        <button onclick="window.print()">Print / Save PDF</button>
+    </div>
     <div class="resume-container">
         <header>
             <h1>GENO A.</h1>

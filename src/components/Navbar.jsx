@@ -23,8 +23,8 @@ const pulse = keyframes`
 const LogoText = styled(Typography)(({ theme }) => ({
   fontFamily: "'Fira Code', monospace",
   fontWeight: 700,
-  letterSpacing: '.3rem',
-  color: '#64ffda',
+  letterSpacing: '.2rem',
+  color: '#10b981',
   textDecoration: 'none',
   '&:hover': {
     animation: `${pulse} 1s ease-in-out infinite`,
@@ -32,15 +32,15 @@ const LogoText = styled(Typography)(({ theme }) => ({
 }));
 
 const NavButton = styled(Button)(({ theme }) => ({
-  margin: theme.spacing(1),
-  color: '#ccd6f6',
+  margin: theme.spacing(0.5, 1),
+  color: '#a1a1aa',
   fontFamily: "'Fira Code', monospace",
   fontWeight: 500,
-  fontSize: '0.9rem',
+  fontSize: '0.85rem',
   textTransform: 'none',
   position: 'relative',
   '&:hover': {
-    color: '#64ffda',
+    color: '#10b981',
     backgroundColor: 'transparent',
     '&::before': {
       width: '100%',
@@ -52,26 +52,28 @@ const NavButton = styled(Button)(({ theme }) => ({
     width: '0',
     height: '2px',
     bottom: '5px',
-    backgroundColor: '#64ffda',
+    backgroundColor: '#10b981',
     transition: 'width 0.3s ease',
   },
 }));
 
 const MobileMenu = styled(Menu)(({ theme }) => ({
   '& .MuiPaper-root': {
-    backgroundColor: '#112240',
-    color: '#ccd6f6',
+    backgroundColor: '#121214',
+    color: '#f4f4f5',
+    border: '1px solid rgba(255, 255, 255, 0.08)',
   },
 }));
 
 const MobileMenuItem = styled(MenuItem)(({ theme }) => ({
   fontFamily: "'Fira Code', monospace",
   '&:hover': {
-    backgroundColor: 'rgba(100, 255, 218, 0.1)',
+    backgroundColor: 'rgba(16, 185, 129, 0.08)',
+    color: '#10b981',
   },
 }));
 
-const pages = ['Home', 'About', 'Services', 'Skills', 'Works', 'Contact'];
+const pages = ['Home', 'About', 'Skills', 'Works', 'Contact'];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -79,7 +81,7 @@ function Navbar() {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
+      if (window.scrollY > 20) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -102,10 +104,18 @@ function Navbar() {
     <AppBar 
       position="fixed" 
       sx={{
-        backgroundColor: scrolled ? 'rgba(10, 25, 47, 0.9)' : '#0a192f',
-        boxShadow: scrolled ? '0 10px 30px -10px rgba(2, 12, 27, 0.7)' : 'none',
+        top: scrolled ? '15px' : '0px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: scrolled ? 'calc(100% - 30px)' : '100%',
+        maxWidth: scrolled ? '1100px' : '100%',
+        borderRadius: scrolled ? '24px' : '0px',
+        backgroundColor: scrolled ? 'rgba(9, 9, 11, 0.75)' : 'transparent',
+        boxShadow: scrolled ? '0 10px 30px -10px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255,255,255,0.05)' : 'none',
         transition: 'all 0.3s ease-in-out',
-        backdropFilter: scrolled ? 'blur(10px)' : 'none',
+        backdropFilter: scrolled ? 'blur(12px)' : 'none',
+        border: scrolled ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid transparent',
+        px: { xs: 1, sm: 2 },
       }}
     >
       <Container maxWidth="lg">
@@ -133,7 +143,7 @@ function Navbar() {
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
-              sx={{ color: '#64ffda' }}
+              sx={{ color: '#10b981' }}
             >
               <MenuIcon />
             </IconButton>
@@ -186,7 +196,7 @@ function Navbar() {
               href="/resume.html"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: '#64ffda', fontWeight: 'bold' }}
+              style={{ color: '#10b981', fontWeight: 'bold' }}
             >
               <Typography textAlign="center">Resume</Typography>
             </MobileMenuItem>
@@ -211,16 +221,18 @@ function Navbar() {
             <Button
               variant="outlined"
               sx={{
-                color: '#64ffda',
-                borderColor: '#64ffda',
-                borderRadius: '4px',
-                padding: '0.5rem 1rem',
+                color: '#10b981',
+                borderColor: '#10b981',
+                borderRadius: '99px',
+                padding: '0.4rem 1.2rem',
                 marginLeft: '1rem',
                 fontFamily: "'Fira Code', monospace",
                 textTransform: 'none',
+                fontWeight: 600,
+                fontSize: '0.85rem',
                 '&:hover': {
-                  backgroundColor: 'rgba(100, 255, 218, 0.1)',
-                  borderColor: '#64ffda',
+                  backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                  borderColor: '#10b981',
                 },
               }}
               href="/resume.html"

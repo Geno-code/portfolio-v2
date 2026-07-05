@@ -1,45 +1,95 @@
 import React from 'react';
-import { Box, Paper, Typography, Grid, useMediaQuery } from '@mui/material';
+import { Box, Paper, Typography, Grid, Container, useMediaQuery } from '@mui/material';
 import { keyframes } from '@emotion/react';
 import { styled } from '@mui/system';
 
-// Animation for skill items
+// Float animation on hover
 const float = keyframes`
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-5px); }
+  50% { transform: translateY(-4px); }
   100% { transform: translateY(0px); }
 `;
 
 // Styled components
-const SkillItem = styled(Paper)(({ theme }) => ({
-  backgroundColor: '#112240',
-  borderRadius: '4px',
-  height: '60px',
+const SkillsContainer = styled(Box)(({ theme }) => ({
+  backgroundColor: '#09090b', /* Zinc 950 */
+  minHeight: '100vh',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  padding: theme.spacing(8, 2),
+  position: 'relative',
+  overflow: 'hidden',
+}));
+
+const Spotlight = styled(Box)(({ theme, color, top, left, right }) => ({
+  position: 'absolute',
+  width: '500px',
+  height: '500px',
+  borderRadius: '50%',
+  background: color || 'rgba(16, 185, 129, 0.04)',
+  filter: 'blur(120px)',
+  top: top || 'auto',
+  left: left || 'auto',
+  right: right || 'auto',
+  pointerEvents: 'none',
+  zIndex: 0,
+}));
+
+const CategoryCard = styled(Paper)(({ theme }) => ({
+  backgroundColor: 'rgba(24, 24, 27, 0.45)', /* Glassmorphic Zinc */
+  borderRadius: '16px',
+  padding: theme.spacing(4),
+  height: '100%',
+  border: '1px solid rgba(255, 255, 255, 0.08)',
+  boxShadow: '0 15px 30px rgba(0, 0, 0, 0.4)',
+  backdropFilter: 'blur(12px)',
   transition: 'all 0.3s ease',
-  border: '1px solid rgba(100, 255, 218, 0.1)',
+  zIndex: 2,
   '&:hover': {
-    transform: 'translateY(-5px)',
-    borderColor: '#64ffda',
-    boxShadow: '0 5px 15px rgba(100, 255, 218, 0.2)',
+    borderColor: 'rgba(16, 185, 129, 0.35)',
+    boxShadow: '0 25px 40px rgba(16, 185, 129, 0.1)',
+    transform: 'translateY(-4px)',
+  },
+}));
+
+const CategoryTitle = styled(Typography)(({ theme }) => ({
+  color: '#f4f4f5',
+  fontFamily: "'Fira Code', monospace",
+  fontWeight: 600,
+  fontSize: '1.1rem',
+  marginBottom: theme.spacing(3),
+  borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+  paddingBottom: theme.spacing(1.5),
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+}));
+
+const SkillPill = styled(Box)(({ theme }) => ({
+  display: 'inline-block',
+  backgroundColor: 'rgba(255, 255, 255, 0.03)',
+  border: '1px solid rgba(255, 255, 255, 0.06)',
+  color: '#d4d4d8', /* Zinc 300 */
+  padding: theme.spacing(0.6, 1.8),
+  borderRadius: '99px',
+  margin: theme.spacing(0.6),
+  fontSize: '0.85rem',
+  fontFamily: "'Fira Code', monospace",
+  transition: 'all 0.2s ease',
+  '&:hover': {
+    backgroundColor: 'rgba(16, 185, 129, 0.08)',
+    borderColor: '#10b981',
+    color: '#10b981',
     animation: `${float} 2s ease-in-out infinite`,
   },
 }));
 
-const SkillText = styled(Typography)(({ theme }) => ({
-  color: '#ccd6f6',
-  fontFamily: "'Fira Code', monospace",
-  fontWeight: 500,
-  fontSize: '0.9rem',
-  textAlign: 'center',
-}));
-
 const SectionTitle = styled(Typography)(({ theme }) => ({
-  color: '#ccd6f6',
+  color: '#f4f4f5',
   position: 'relative',
   paddingBottom: '10px',
+  fontFamily: "'Fira Code', monospace",
   '&:after': {
     content: '""',
     position: 'absolute',
@@ -48,53 +98,59 @@ const SectionTitle = styled(Typography)(({ theme }) => ({
     transform: 'translateX(-50%)',
     width: '80px',
     height: '2px',
-    backgroundColor: '#64ffda',
+    backgroundColor: '#10b981',
   },
 }));
 
-const skills = [
-  "Java", "Spring Boot", "Microservices", "REST APIs",
-  "Spring Security", "Spring Data JPA", "SQL", "PostgreSQL",
-  "MySQL", "MongoDB", "Redis", "WebSockets",
-  "Docker", "AWS S3", "Git / GitHub", "Maven",
-  "JUnit", "Mockito", "Postman", "React.js",
-  "JavaScript", "JWT / Auth", "Distributed Tracing", "System Design"
+const HighlightText = styled('span')(({ theme }) => ({
+  color: '#10b981',
+}));
+
+const categorizedSkills = [
+  {
+    category: "Core JVM & Frameworks",
+    count: "01",
+    items: ["Java", "Spring Boot", "Spring Data JPA", "Spring Security", "Microservices", "REST APIs"]
+  },
+  {
+    category: "Databases & Caching",
+    count: "02",
+    items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "WebSockets"]
+  },
+  {
+    category: "DevOps & Cloud Integration",
+    count: "03",
+    items: ["Docker", "AWS S3", "Git / GitHub", "Maven", "CI/CD basics"]
+  },
+  {
+    category: "Testing & Architecture",
+    count: "04",
+    items: ["JUnit", "Mockito", "Postman", "JWT Auth", "Distributed Tracing", "System Design"]
+  }
 ];
 
 function Skills() {
   const isSmallScreen = useMediaQuery('(max-width:600px)');
 
   return (
-    <Box 
-      id="skills"
-      sx={{ 
-        backgroundColor: "#0a192f", 
-        minHeight: '100vh',
-        display: "flex", 
-        justifyContent: "center", 
-        alignItems: "center",
-        // py: 8,
-        px: 2
-      }}
-    >
-      <Box sx={{ 
-        display: "flex", 
-        flexDirection: "column",
-        maxWidth: '1000px',
-        width: '100%'
-      }}>
+    <SkillsContainer id="skills">
+      <div className="mesh-grid"></div>
+      <Spotlight color="rgba(16, 185, 129, 0.04)" top="20%" left="-10%" />
+      <Spotlight color="rgba(6, 182, 212, 0.03)" bottom="20%" right="-10%" />
+
+      <Container maxWidth="lg" sx={{ zIndex: 5, position: 'relative' }}>
         <Box sx={{ 
           display: "flex", 
           alignItems: 'center', 
           justifyContent: "center",
           flexDirection: 'column',
-          mb: 4
+          mb: 6
         }}>
           <SectionTitle variant={isSmallScreen ? 'h4' : 'h3'}>
-            Skills & Technologies
+            <HighlightText>02.</HighlightText> Technical Skillset
           </SectionTitle>
           <Typography 
-            color='#8892b0' 
+            color='#a1a1aa' 
             align="center" 
             variant={isSmallScreen ? 'body1' : 'h6'}
             sx={{ 
@@ -103,35 +159,31 @@ function Skills() {
               lineHeight: 1.6
             }}
           >
-            I enjoy diving into and learning new things. Here's a list of technologies I've worked with
+            I structure my solutions on robust software engineering concepts and reliable tools. Here is my development stack:
           </Typography>
         </Box>
         
-        <Grid 
-          container 
-          spacing={{ xs: 1.5, sm: 2 }} 
-          sx={{
-            justifyContent: 'center'
-          }}
-        >
-          {skills.map((skill, index) => (
-            <Grid 
-              key={index} 
-              item 
-              xs={6} 
-              sm={4} 
-              md={3}
-            >
-              <SkillItem elevation={3}>
-                <SkillText>
-                  {skill}
-                </SkillText>
-              </SkillItem>
+        <Grid container spacing={4}>
+          {categorizedSkills.map((cat, idx) => (
+            <Grid key={idx} item xs={12} md={6}>
+              <CategoryCard elevation={0}>
+                <CategoryTitle variant="h6">
+                  <span>{cat.category}</span>
+                  <HighlightText sx={{ fontSize: '0.9rem' }}>{"//" + cat.count}</HighlightText>
+                </CategoryTitle>
+                <Box sx={{ display: 'flex', flexWrap: 'wrap', m: -0.6 }}>
+                  {cat.items.map((skill, index) => (
+                    <SkillPill key={index}>
+                      {skill}
+                    </SkillPill>
+                  ))}
+                </Box>
+              </CategoryCard>
             </Grid>
           ))}
         </Grid>
-      </Box>
-    </Box>
+      </Container>
+    </SkillsContainer>
   );
 }
 

@@ -14,72 +14,130 @@ const float = keyframes`
 
 // Styled components
 const HeroContainer = styled(Box)(({ theme }) => ({
-  backgroundColor: '#0a192f',
+  backgroundColor: '#09090b', /* Zinc 950 */
   minHeight: '100vh',
   display: 'flex',
   alignItems: 'center',
-  // padding: theme.spacing(4, 0),
+  position: 'relative',
   overflow: 'hidden',
+  paddingTop: theme.spacing(8),
+}));
+
+const Spotlight = styled(Box)(({ theme, color, top, left, right }) => ({
+  position: 'absolute',
+  width: '500px',
+  height: '500px',
+  borderRadius: '50%',
+  background: color || 'rgba(16, 185, 129, 0.06)',
+  filter: 'blur(120px)',
+  top: top || 'auto',
+  left: left || 'auto',
+  right: right || 'auto',
+  pointerEvents: 'none',
+  zIndex: 0,
+  [theme.breakpoints.down('md')]: {
+    width: '300px',
+    height: '300px',
+  },
 }));
 
 const HeroImage = styled('img')(({ theme }) => ({
   maxWidth: '100%',
   height: 'auto',
-  borderRadius: '10px',
-  boxShadow: '0 20px 30px -15px rgba(2, 12, 27, 0.7)',
+  borderRadius: '24px',
+  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05)',
   animation: `${float} 6s ease-in-out infinite`,
-  filter: 'grayscale(20%) contrast(1) brightness(90%)',
+  filter: 'grayscale(20%) contrast(1.05) brightness(95%)',
   transition: 'all 0.3s ease',
+  zIndex: 2,
   '&:hover': {
-    filter: 'grayscale(0%) contrast(1) brightness(100%)',
+    filter: 'grayscale(0%) contrast(1.05) brightness(100%)',
+    boxShadow: '0 25px 50px rgba(16, 185, 129, 0.25), 0 0 0 1px rgba(16, 185, 129, 0.3)',
   },
   [theme.breakpoints.down('md')]: {
-    maxWidth: '300px',
+    maxWidth: '280px',
     marginTop: theme.spacing(4),
   },
 }));
 
-const HeroButton = styled(Button)(({ theme }) => ({
-  padding: theme.spacing(1.5, 3),
+const PrimaryButton = styled(Button)(({ theme }) => ({
+  padding: theme.spacing(1.5, 3.5),
   marginTop: theme.spacing(3),
-  borderRadius: '4px',
-  backgroundColor: 'transparent',
-  color: '#64ffda',
-  border: '1px solid #64ffda',
+  borderRadius: '99px',
+  backgroundColor: '#10b981',
+  color: '#09090b',
+  fontWeight: 600,
   fontFamily: "'Fira Code', monospace",
-  fontSize: '0.9rem',
+  fontSize: '0.85rem',
+  textTransform: 'none',
+  transition: 'all 0.3s ease',
+  boxShadow: '0 4px 14px rgba(16, 185, 129, 0.3)',
+  '&:hover': {
+    backgroundColor: '#059669',
+    transform: 'translateY(-2px)',
+    boxShadow: '0 6px 20px rgba(16, 185, 129, 0.5)',
+  },
+}));
+
+const SecondaryButton = styled(Button)(({ theme }) => ({
+  padding: theme.spacing(1.5, 3.5),
+  marginTop: theme.spacing(3),
+  borderRadius: '99px',
+  backgroundColor: 'rgba(255, 255, 255, 0.03)',
+  color: '#f4f4f5',
+  border: '1px solid rgba(255, 255, 255, 0.08)',
+  fontFamily: "'Fira Code', monospace",
+  fontWeight: 600,
+  fontSize: '0.85rem',
   textTransform: 'none',
   transition: 'all 0.3s ease',
   '&:hover': {
-    backgroundColor: 'rgba(100, 255, 218, 0.1)',
-    transform: 'translateY(-3px)',
+    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+    borderColor: '#10b981',
+    transform: 'translateY(-2px)',
   },
 }));
 
 const GreetingText = styled(Typography)(({ theme }) => ({
-  color: '#64ffda',
+  color: '#10b981',
   fontFamily: "'Fira Code', monospace",
-  marginBottom: theme.spacing(1),
-  fontSize: '1.1rem',
+  marginBottom: theme.spacing(1.5),
+  fontSize: '1rem',
+  fontWeight: 600,
+  letterSpacing: '0.05em',
 }));
 
 const NameText = styled(Typography)(({ theme }) => ({
-  color: '#ccd6f6',
-  fontWeight: 700,
-  lineHeight: 1.1,
-  marginBottom: theme.spacing(2),
+  color: '#f4f4f5',
+  fontWeight: 900,
+  lineHeight: 1.05,
+  marginBottom: theme.spacing(1),
+  fontSize: '3.5rem',
   [theme.breakpoints.down('sm')]: {
-    fontSize: '2rem',
+    fontSize: '2.5rem',
+  },
+}));
+
+const GradientTagline = styled(Typography)(({ theme }) => ({
+  fontWeight: 800,
+  lineHeight: 1.15,
+  marginBottom: theme.spacing(3),
+  background: 'linear-gradient(135deg, #10b981 0%, #06b6d4 100%)',
+  WebkitBackgroundClip: 'text',
+  WebkitTextFillColor: 'transparent',
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '1.8rem',
   },
 }));
 
 const DescriptionText = styled(Typography)(({ theme }) => ({
-  color: '#8892b0',
-  // maxWidth: '540px',
-  lineHeight: 1.5,
-  marginBottom: theme.spacing(3),
+  color: '#a1a1aa',
+  lineHeight: 1.6,
+  fontSize: '1.05rem',
+  marginBottom: theme.spacing(4),
+  maxWidth: '600px',
   [theme.breakpoints.down('sm')]: {
-    fontSize: '0.9rem',
+    fontSize: '0.95rem',
   }
 }));
 
@@ -88,7 +146,11 @@ function Home() {
 
   return (
     <HeroContainer id="home">
-      <Container maxWidth="lg">
+      <div className="mesh-grid"></div>
+      <Spotlight color="rgba(16, 185, 129, 0.05)" top="-10%" left="10%" />
+      <Spotlight color="rgba(6, 182, 212, 0.04)" bottom="10%" right="10%" />
+      
+      <Container maxWidth="lg" sx={{ zIndex: 5, position: 'relative' }}>
         <Grid container spacing={6} alignItems="center" justifyContent="center">
           <Grid item xs={12} md={7}>
             <Box sx={{ textAlign: isSmallScreen ? 'center' : 'left' }}>
@@ -98,20 +160,20 @@ function Home() {
               <NameText variant="h2">
                 Geno A.
               </NameText>
-              <NameText variant="h3" sx={{ color: '#8892b0', fontSize: { xs: '1.75rem', sm: '2rem', md: '3rem' } }}>
+              <GradientTagline variant="h3" sx={{ fontSize: { xs: '1.8rem', sm: '2.2rem', md: '3.2rem' } }}>
                 I build high-performance backend systems.
-              </NameText>
+              </GradientTagline>
               <DescriptionText variant="body1" >
                 I am a Backend Software Engineer with 2+ years of experience building secure, scalable microservices and REST APIs in Java and Spring Boot. 
                 Whether you need robust data pipelines, optimized database queries, or real-time WebSocket integrations, I build the engines that run your applications.
               </DescriptionText>
               <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', justifyContent: isSmallScreen ? 'center' : 'flex-start' }}>
                 <ScrollLink to="works" smooth={true} duration={500} offset={-70}>
-                  <HeroButton variant="outlined" endIcon={<EastIcon />}>
+                  <PrimaryButton variant="contained" endIcon={<EastIcon />}>
                     View My Work
-                  </HeroButton>
+                  </PrimaryButton>
                 </ScrollLink>
-                <HeroButton 
+                <SecondaryButton 
                   variant="outlined" 
                   component="a"
                   href="/resume.html"
@@ -119,7 +181,7 @@ function Home() {
                   rel="noopener noreferrer"
                 >
                   View Resume
-                </HeroButton>
+                </SecondaryButton>
               </Box>
             </Box>
           </Grid>

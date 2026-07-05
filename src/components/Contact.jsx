@@ -6,33 +6,56 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
-// import TwitterIcon from '@mui/icons-material/Twitter';
 import emailjs from 'emailjs-com';
 import { useState, useRef } from 'react';
 
-
 const ContactContainer = styled(Box)(({ theme }) => ({
-  backgroundColor: '#0a192f',
+  backgroundColor: '#09090b', /* Zinc 950 */
   minHeight: '100vh',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  padding: theme.spacing(4, 2),
+  padding: theme.spacing(8, 2),
+  position: 'relative',
+  overflow: 'hidden',
+}));
+
+const Spotlight = styled(Box)(({ theme, color, top, left, right }) => ({
+  position: 'absolute',
+  width: '450px',
+  height: '450px',
+  borderRadius: '50%',
+  background: color || 'rgba(16, 185, 129, 0.04)',
+  filter: 'blur(120px)',
+  top: top || 'auto',
+  left: left || 'auto',
+  right: right || 'auto',
+  pointerEvents: 'none',
+  zIndex: 0,
 }));
 
 const ContactCard = styled(Box)(({ theme }) => ({
-  backgroundColor: '#112240',
-  borderRadius: '8px',
-  padding: theme.spacing(4),
+  backgroundColor: 'rgba(24, 24, 27, 0.45)', /* Glassmorphic Zinc */
+  borderRadius: '16px',
+  border: '1px solid rgba(255, 255, 255, 0.08)',
+  backdropFilter: 'blur(12px)',
+  padding: theme.spacing(5),
   maxWidth: '1000px',
   width: '100%',
-  boxShadow: '0 10px 30px -15px rgba(2, 12, 27, 0.7)',
+  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)',
+  transition: 'all 0.3s ease',
+  zIndex: 2,
+  '&:hover': {
+    borderColor: 'rgba(16, 185, 129, 0.35)',
+    boxShadow: '0 25px 50px rgba(16, 185, 129, 0.1)',
+  },
 }));
 
 const SectionTitle = styled(Typography)(({ theme }) => ({
-  color: '#ccd6f6',
+  color: '#f4f4f5',
   position: 'relative',
-  paddingBottom: theme.spacing(1),
+  paddingBottom: theme.spacing(1.5),
+  fontFamily: "'Fira Code', monospace",
   '&:after': {
     content: '""',
     position: 'absolute',
@@ -40,38 +63,63 @@ const SectionTitle = styled(Typography)(({ theme }) => ({
     left: 0,
     width: '70px',
     height: '2px',
-    backgroundColor: '#64ffda',
+    backgroundColor: '#10b981',
   },
 }));
 
+const HighlightText = styled('span')(({ theme }) => ({
+  color: '#10b981',
+}));
+
 const ContactButton = styled(Button)(({ theme }) => ({
-  padding: theme.spacing(1.5, 3),
+  padding: theme.spacing(1.5, 4),
   marginTop: theme.spacing(3),
-  borderRadius: '4px',
-  backgroundColor: 'transparent',
-  color: '#64ffda',
-  border: '1px solid #64ffda',
+  borderRadius: '99px',
+  backgroundColor: '#10b981',
+  color: '#09090b',
+  fontWeight: 600,
+  border: 'none',
   fontFamily: "'Fira Code', monospace",
-  fontSize: '0.9rem',
+  fontSize: '0.85rem',
   textTransform: 'none',
   transition: 'all 0.3s ease',
+  boxShadow: '0 4px 14px rgba(16, 185, 129, 0.3)',
   '&:hover': {
-    backgroundColor: 'rgba(100, 255, 218, 0.1)',
-    transform: 'translateY(-3px)',
+    backgroundColor: '#059669',
+    transform: 'translateY(-2px)',
+    boxShadow: '0 6px 20px rgba(16, 185, 129, 0.5)',
   },
+  '&:disabled': {
+    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+    color: '#71717a',
+  }
 }));
 
 const ContactInfoItem = styled(Box)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
-  marginBottom: theme.spacing(2),
-  color: '#8892b0',
+  marginBottom: theme.spacing(3),
+  color: '#a1a1aa',
+}));
+
+const SocialButton = styled(Button)(({ theme }) => ({
+  color: '#a1a1aa',
+  minWidth: 0,
+  padding: theme.spacing(1),
+  borderRadius: '50%',
+  backgroundColor: 'rgba(255, 255, 255, 0.03)',
+  border: '1px solid rgba(255, 255, 255, 0.05)',
+  transition: 'all 0.3s ease',
+  '&:hover': {
+    color: '#10b981',
+    backgroundColor: 'rgba(16, 185, 129, 0.08)',
+    borderColor: '#10b981',
+    transform: 'translateY(-3px)',
+  },
 }));
 
 function Contact() {
   const isSmallScreen = useMediaQuery('(max-width:600px)');
-
-  // Add all state declarations
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -84,7 +132,6 @@ function Contact() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -108,20 +155,37 @@ function Contact() {
       .finally(() => setIsSubmitting(false));
   };
 
+  const fieldStyles = {
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'rgba(255, 255, 255, 0.08)',
+        borderRadius: '10px',
+      },
+      '&:hover fieldset': {
+        borderColor: 'rgba(16, 185, 129, 0.5)',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#10b981',
+      },
+    },
+  };
 
   return (
     <ContactContainer id="contact">
+      <div className="mesh-grid"></div>
+      <Spotlight color="rgba(16, 185, 129, 0.04)" top="10%" right="-10%" />
+      
       <ContactCard>
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
+        <Grid container spacing={5} alignItems="center">
+          <Grid item xs={12} md={6} sx={{ zIndex: 5 }}>
             <SectionTitle variant="h4">
-              <span style={{ color: '#64ffda' }}>04.</span> Get In Touch
+              <HighlightText>04.</HighlightText> Get In Touch
             </SectionTitle>
-            <Typography color="#8892b0" paragraph sx={{ mt: 3, lineHeight: 1.6 }}>
-              I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll do my best to get back to you!
+            <Typography color="#a1a1aa" paragraph sx={{ mt: 3, lineHeight: 1.7, fontSize: '1rem' }}>
+              I'm actively searching for full-time Backend Developer and Java Backend Engineer positions. If you have an opening on your engineering team, or just want to connect, feel free to drop a message!
             </Typography>
 
-            <form ref={formRef} onSubmit={handleSubmit} style={{ marginTop: '20px' }}>
+            <form ref={formRef} onSubmit={handleSubmit} style={{ marginTop: '24px' }}>
               <TextField
                 name="name"
                 value={formData.name}
@@ -131,18 +195,9 @@ function Contact() {
                 label="Name"
                 variant="outlined"
                 margin="normal"
-                InputLabelProps={{ style: { color: '#8892b0' } }}
-                InputProps={{ style: { color: '#ccd6f6' } }}
-                sx={{
-                  '& .MuiOutlinedInput-root': {
-                    '& fieldset': {
-                      borderColor: '#233554',
-                    },
-                    '&:hover fieldset': {
-                      borderColor: '#64ffda',
-                    },
-                  },
-                }}
+                InputLabelProps={{ style: { color: '#a1a1aa' } }}
+                InputProps={{ style: { color: '#f4f4f5' } }}
+                sx={fieldStyles}
               />
               <TextField
                 fullWidth
@@ -154,18 +209,9 @@ function Contact() {
                 label="Email"
                 variant="outlined"
                 margin="normal"
-                InputLabelProps={{ style: { color: '#8892b0' } }}
-                InputProps={{ style: { color: '#ccd6f6' } }}
-                sx={{
-                  '& .MuiOutlinedInput-root': {
-                    '& fieldset': {
-                      borderColor: '#233554',
-                    },
-                    '&:hover fieldset': {
-                      borderColor: '#64ffda',
-                    },
-                  },
-                }}
+                InputLabelProps={{ style: { color: '#a1a1aa' } }}
+                InputProps={{ style: { color: '#f4f4f5' } }}
+                sx={fieldStyles}
               />
               <TextField
                 fullWidth
@@ -178,30 +224,21 @@ function Contact() {
                 margin="normal"
                 multiline
                 rows={4}
-                InputLabelProps={{ style: { color: '#8892b0' } }}
-                InputProps={{ style: { color: '#ccd6f6' } }}
-                sx={{
-                  '& .MuiOutlinedInput-root': {
-                    '& fieldset': {
-                      borderColor: '#233554',
-                    },
-                    '&:hover fieldset': {
-                      borderColor: '#64ffda',
-                    },
-                  },
-                }}
+                InputLabelProps={{ style: { color: '#a1a1aa' } }}
+                InputProps={{ style: { color: '#f4f4f5' } }}
+                sx={fieldStyles}
               />
               <Box sx={{ textAlign: { xs: 'center', md: 'left' } }}>
                 <ContactButton type="submit" disabled={isSubmitting}>
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </ContactButton>
                 {submitStatus === 'success' && (
-                  <Typography color="#64ffda" sx={{ mt: 2 }}>
+                  <Typography color="#10b981" sx={{ mt: 2, fontFamily: "'Fira Code', monospace" }}>
                     Message sent successfully!
                   </Typography>
                 )}
                 {submitStatus === 'error' && (
-                  <Typography color="error" sx={{ mt: 2 }}>
+                  <Typography color="error" sx={{ mt: 2, fontFamily: "'Fira Code', monospace" }}>
                     Failed to send message. Please try again.
                   </Typography>
                 )}
@@ -209,54 +246,47 @@ function Contact() {
             </form>
           </Grid>
 
-          <Grid item xs={12} md={6}>
-            <Box sx={{ mt: isSmallScreen ? 4 : 0 }}>
-              <Typography color="#ccd6f6" variant="h5" sx={{ mb: 3 }}>
-                Contact Information
+          <Grid item xs={12} md={6} sx={{ zIndex: 5 }}>
+            <Box sx={{ mt: isSmallScreen ? 4 : 0, pl: { md: 6 } }}>
+              <Typography color="#f4f4f5" variant="h5" sx={{ mb: 3, fontFamily: "'Fira Code', monospace", fontWeight: 600 }}>
+                Contact Details
               </Typography>
 
               <ContactInfoItem>
-                <EmailIcon sx={{ mr: 2, color: '#64ffda' }} />
-                <Typography>geno.dev7@gmail.com</Typography>
+                <EmailIcon sx={{ mr: 2, color: '#10b981' }} />
+                <Typography sx={{ fontFamily: "'Fira Code', monospace" }}>geno.dev7@gmail.com</Typography>
               </ContactInfoItem>
 
               <ContactInfoItem>
-                <PhoneIcon sx={{ mr: 2, color: '#64ffda' }} />
-                <Typography>+91 9360810235</Typography>
+                <PhoneIcon sx={{ mr: 2, color: '#10b981' }} />
+                <Typography sx={{ fontFamily: "'Fira Code', monospace" }}>+91 9360810235</Typography>
               </ContactInfoItem>
 
               <ContactInfoItem>
-                <LocationOnIcon sx={{ mr: 2, color: '#64ffda' }} />
-                <Typography>Kanyakumari, India</Typography>
+                <LocationOnIcon sx={{ mr: 2, color: '#10b981' }} />
+                <Typography>Kanyakumari, Tamil Nadu, India</Typography>
               </ContactInfoItem>
 
-              <Box sx={{ mt: 4 }}>
-                <Typography color="#ccd6f6" variant="h5" sx={{ mb: 3 }}>
-                  Find Me On
+              <Box sx={{ mt: 5 }}>
+                <Typography color="#f4f4f5" variant="h5" sx={{ mb: 3, fontFamily: "'Fira Code', monospace", fontWeight: 600 }}>
+                  Developer Channels
                 </Typography>
 
                 <Box sx={{ display: 'flex', gap: 2 }}>
-                  <Button
+                  <SocialButton
                     href="https://www.linkedin.com/in/geno07/"
                     target="_blank"
-                    sx={{ color: '#64ffda', minWidth: 0 }}
+                    rel="noopener noreferrer"
                   >
-                    <LinkedInIcon fontSize="large" />
-                  </Button>
-                  <Button
+                    <LinkedInIcon fontSize="medium" />
+                  </SocialButton>
+                  <SocialButton
                     href="https://github.com/Geno-code"
                     target="_blank"
-                    sx={{ color: '#64ffda', minWidth: 0 }}
+                    rel="noopener noreferrer"
                   >
-                    <GitHubIcon fontSize="large" />
-                  </Button>
-                  {/* <Button 
-                    href="https://twitter.com" 
-                    target="_blank"
-                    sx={{ color: '#64ffda', minWidth: 0 }}
-                  >
-                    <TwitterIcon fontSize="large" />
-                  </Button> */}
+                    <GitHubIcon fontSize="medium" />
+                  </SocialButton>
                 </Box>
               </Box>
             </Box>
