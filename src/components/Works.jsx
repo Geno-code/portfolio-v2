@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Paper, Typography, Grid, Button, Container, useMediaQuery } from '@mui/material';
 import { styled } from '@mui/system';
-import HowToVoteIcon from '@mui/icons-material/HowToVote';
-import LightbulbIcon from '@mui/icons-material/Lightbulb';
+// import HowToVoteIcon from '@mui/icons-material/HowToVote';
+// import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import CodeIcon from '@mui/icons-material/Code';
 import BugReportIcon from '@mui/icons-material/BugReport';
 import ChatIcon from '@mui/icons-material/Chat';
