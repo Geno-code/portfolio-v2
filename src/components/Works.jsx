@@ -149,14 +149,14 @@ const projects = [
   {
     projectName: "AI Resume Analyzer & Assistant",
     description: "A production-ready RESTful backend using Java 21, Spring Boot, and Spring AI. Implements a pgvector RAG pipeline for natural language Q&A over resume data, parses PDFs using Apache PDFBox, and maps LLM outputs directly to Java DTOs.",
-    code: "https://github.com/Geno-code",
+    code: "https://github.com/Geno-code/AI-Resume-Analyzer.git",
     icon: <PsychologyIcon fontSize="medium" />,
     tags: ["Java 21", "Spring Boot", "Spring AI", "pgvector", "PostgreSQL", "Mistral AI", "PDFBox"]
   },
   {
     projectName: "Multiplayer 2D Game Backend",
     description: "A real-time, low-latency multiplayer game backend using Spring Boot WebSockets and STOMP. Managed concurrency using thread-safe state engines (ConcurrentHashMap) and implemented server-side location validation checks.",
-    code: "https://github.com/Geno-code/game-api.git",
+    code: "https://github.com/Geno-code/two-player-game.git",
     icon: <SportsEsportsIcon fontSize="medium" />,
     tags: ["Java", "Spring Boot", "WebSockets", "STOMP", "Concurrency"]
   },
@@ -170,24 +170,24 @@ const projects = [
   {
     projectName: "WebSocket Chat Service",
     description: "A real-time chat service engine implementing active room management and messaging persistence. Built using Spring Boot WebSockets and STOMP to ensure immediate event tracking and low-latency client delivery.",
-    code: "https://github.com/Geno-code/chatapp-api.git",
+    code: "https://github.com/Geno-code/chat-app.git",
     icon: <ChatIcon fontSize="medium" />,
     tags: ["Java", "Spring Boot", "WebSockets", "STOMP", "React.js"]
-  },
-  {
-    projectName: "Secure Election Engine",
-    description: "A transaction-consistent secure election engine. Implemented database level validators in Spring Data JPA to guarantee transaction integrity, preventing double-ballots and maintaining strict election timelines.",
-    code: "https://github.com/Geno-code/voterEngineAPI.git",
-    icon: <HowToVoteIcon fontSize="medium" />,
-    tags: ["Java", "Spring Boot", "Spring Data JPA", "MySQL", "Transactions"]
-  },
-  {
-    projectName: "Streetlight Telemetry Monitor",
-    description: "An IoT monitoring service parsing fault-status and GPS tracking data payloads from sensor nodes, persisting diagnostic alarms and rendering coordinates dynamically on web-based maps.",
-    code: "https://github.com/Geno-code/StreetLightFaultDetection.git",
-    icon: <LightbulbIcon fontSize="medium" />,
-    tags: ["Java", "Spring Boot", "IoT Telemetry", "GPS Map Integration"]
   }
+  // {
+  //   projectName: "Secure Election Engine",
+  //   description: "A transaction-consistent secure election engine. Implemented database level validators in Spring Data JPA to guarantee transaction integrity, preventing double-ballots and maintaining strict election timelines.",
+  //   code: "https://github.com/Geno-code/voterEngineAPI.git",
+  //   icon: <HowToVoteIcon fontSize="medium" />,
+  //   tags: ["Java", "Spring Boot", "Spring Data JPA", "MySQL", "Transactions"]
+  // },
+  // {
+  //   projectName: "Streetlight Telemetry Monitor",
+  //   description: "An IoT monitoring service parsing fault-status and GPS tracking data payloads from sensor nodes, persisting diagnostic alarms and rendering coordinates dynamically on web-based maps.",
+  //   code: "https://github.com/Geno-code/StreetLightFaultDetection.git",
+  //   icon: <LightbulbIcon fontSize="medium" />,
+  //   tags: ["Java", "Spring Boot", "IoT Telemetry", "GPS Map Integration"]
+  // }
 ];
 
 function Works() {
@@ -198,7 +198,7 @@ function Works() {
       <div className="mesh-grid"></div>
       <Spotlight color="rgba(16, 185, 129, 0.04)" top="-10%" right="10%" />
       <Spotlight color="rgba(6, 182, 212, 0.03)" bottom="10%" left="10%" />
-      
+
       <Container maxWidth="lg" sx={{ zIndex: 5, position: 'relative' }}>
         <Box sx={{
           display: "flex",
@@ -248,7 +248,7 @@ function Works() {
                     ))}
                   </Box>
                 </Box>
-                
+
                 <Box>
                   {project.code && (
                     <ProjectButton
