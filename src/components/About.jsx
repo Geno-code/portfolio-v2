@@ -214,15 +214,15 @@ function About() {
         <Grid container spacing={5} alignItems="center">
           <Grid item xs={12} md={6}>
             <Typography color="#a1a1aa" paragraph sx={{ lineHeight: 1.7, fontSize: '1.02rem' }}>
-              Hello! I'm <HighlightText>Geno A.</HighlightText>, a Backend Software Engineer with a B.E. in Electronics & Communication Engineering. I combine strong logical foundations with deep systems knowledge to engineer secure, high-performance backends.
+              Hello! I'm <HighlightText>Geno A.</HighlightText>, a Backend Software Engineer with a B.E. in Electronics & Communication Engineering. I combine strong logical foundations with deep systems knowledge to engineer secure, high-performance, and scalable backends.
             </Typography>
             
             <Typography color="#a1a1aa" paragraph sx={{ lineHeight: 1.7, fontSize: '1.02rem' }}>
-              Currently, at <HighlightText>Zarthi Pvt Ltd</HighlightText>, I build core backend services for the Third Wave Coffee platform, where I focus on API design, caching structures (Redis), and distributed logging. Previously, at <HighlightText>Techneat Info Solutions</HighlightText>, I standardized code validation rules and built secure document flow modules.
+              My expertise lies in designing robust backend architectures, optimizing API performance, and implementing advanced caching strategies like <HighlightText>Redis</HighlightText> to handle high-traffic systems. I have a proven track record of standardizing code validation workflows, building secure document processing systems, and orchestrating distributed logging for complex applications.
             </Typography>
             
             <Typography color="#a1a1aa" paragraph sx={{ lineHeight: 1.7, fontSize: '1.02rem' }}>
-              My engineering approach prioritizes database query optimizations, performance tuning, and clean architecture principles. I specialize in Java and the Spring Boot ecosystem, while keeping a high level of versatility to integrate cloud and frontend technologies.
+              I specialize in Java and the Spring Boot ecosystem, focusing on clean code, database query optimization, and microservices architecture. I thrive on solving complex technical challenges while maintaining the flexibility to integrate modern cloud services and frontend solutions.
             </Typography>
 
             <Typography color="#f4f4f5" sx={{ mt: 3, mb: 2, fontFamily: "'Fira Code', monospace", fontSize: '0.9rem', fontWeight: 600 }}>
